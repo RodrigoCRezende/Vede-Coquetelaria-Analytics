@@ -1,31 +1,46 @@
-🍸 Vedê Coquetelaria & Arte - Sistema de Analytics
+# 🍸 Vedê Analytics
 
-Sistema de Suporte à Decisão (DSS) desenvolvido como Projeto Integrador. Integra uma interface web operacional, um backend de gestão e um módulo de Inteligência Artificial para previsão de demanda.
+> **Sistema de Suporte à Decisão (DSS) baseado em Inteligência Artificial para gestão de bares e restaurantes.**
 
-🚀 Tecnologias
+Este projeto foi desenvolvido como parte do **Projeto Integrador**, visando solucionar a falta de previsibilidade e análise estratégica de dados no estabelecimento *Vedê Coquetelaria & Arte*.
 
-Frontend: HTML5, CSS3, JavaScript (Vanilla).
-Backend: Node.js, Express.
-IA: Python, Flask, Scikit-Learn, Pandas.
+---
 
-📂 Como Rodar Localmente
+## 🚀 Sobre o Projeto
 
-1. Clone o repositório:
-   Baixe os arquivos para sua máquina.
+O **Vede Analytics** é uma plataforma que integra operações de vendas (PDV) com análise de dados avançada. Diferente de sistemas tradicionais que apenas registram o passado, este sistema utiliza algoritmos de **Machine Learning (Clustering)** para qualificar o mix de produtos e sugerir estratégias de estoque e marketing.
 
-2. nstale as Dependências:
-    No terminal `backend`: execute `npm install`
-    No terminal `ia`: execute `pip install flask flask-cors pandas scikit-learn`
+### 🧠 Diferencial: IA de Engenharia de Cardápio
+O sistema não utiliza regras fixas. Ele aplica o algoritmo **K-Means** sobre os dados históricos para classificar os produtos na **Matriz de Engenharia de Menu**:
+* ⭐ **Estrelas:** Alta Venda / Alta Receita.
+* 🐮 **Burros de Carga:** Alta Venda / Baixa Receita.
+* 🧩 **Quebra-Cabeças:** Baixa Venda / Alta Receita.
+* 🐕 **Cães:** Baixa Venda / Baixa Receita.
 
-3. Execute os Serviços:
-    Terminal 1 (`/ia`): `python app.py`
-    Terminal 2 (`/backend`): `node server.js`
+---
 
-4. Acesse:**
-   Abra o arquivo `/frontend/index.html` no navegador.
-   Login: `admin` / `123`
+## 🛠️ Tecnologias Utilizadas
 
- 📊 Funcionalidad
-Dashboard de Vendas em tempo real.
-Previsão de Demanda (IA) para Sexta, Sábado e Domingo.
-* Simulador de PDV integrado ao estoque
+O projeto foi construído sobre uma arquitetura de microsserviços robusta e unificada em Python:
+
+* **Frontend:** HTML5, CSS3, JavaScript (Vanilla).
+* **Backend API:** Python Flask (Gerenciamento de Autenticação e Transações).
+* **Módulo de IA:** Python Flask + Scikit-Learn + Pandas (Processamento Estatístico).
+* **Banco de Dados:** MongoDB (NoSQL).
+* **Automação:** Scripts Python para ETL (Extração, Transformação e Carga) de dados.
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+/
+├── backend/           # API de Gestão (Porta 5000)
+│   └── servidor.py
+├── ia/                # API de Inteligência (Porta 5002)
+│   └── inteligencia.py
+├── frontend/          # Interface do Usuário
+│   └── index.html
+├── conversor.py       # Script ETL: Converte Planilhas Excel para JSON
+├── importador.py      # Script ETL: Carrega dados no MongoDB
+└── dados.json         # Base de Conhecimento (Dataset)
